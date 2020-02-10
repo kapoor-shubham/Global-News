@@ -1,24 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4ue-JP-Hai">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Country ListVC-->
+        <scene sceneID="Kfi-qa-32P">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController storyboardIdentifier="CountryListVC" id="4ue-JP-Hai" customClass="CountryListVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s2H-hc-a1l">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDu-UQ-ag4">
+                                <rect key="frame" x="130.5" y="64" width="153" height="27"/>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QXA-NX-PyZ">
+                                <rect key="frame" x="20" y="111" width="374" height="731"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountryListTableCell" id="q9M-Yd-XOd" customClass="CountryListTableCell" customModule="NewsApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q9M-Yd-XOd" id="phs-BG-bzs">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="4ue-JP-Hai" id="HkR-et-edE"/>
+                                    <outlet property="delegate" destination="4ue-JP-Hai" id="SGC-rF-wfy"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="QXA-NX-PyZ" firstAttribute="top" secondItem="qDu-UQ-ag4" secondAttribute="bottom" constant="20" id="FWF-5B-Pf2"/>
+                            <constraint firstItem="QXA-NX-PyZ" firstAttribute="leading" secondItem="GVw-2C-rhl" secondAttribute="leading" constant="20" id="FkA-4s-qtC"/>
+                            <constraint firstItem="qDu-UQ-ag4" firstAttribute="top" secondItem="GVw-2C-rhl" secondAttribute="top" constant="20" id="bJ5-wA-4Zn"/>
+                            <constraint firstItem="GVw-2C-rhl" firstAttribute="trailing" secondItem="QXA-NX-PyZ" secondAttribute="trailing" constant="20" id="edM-S4-jZr"/>
+                            <constraint firstItem="qDu-UQ-ag4" firstAttribute="centerX" secondItem="s2H-hc-a1l" secondAttribute="centerX" id="sTf-OZ-Ohu"/>
+                            <constraint firstItem="GVw-2C-rhl" firstAttribute="bottom" secondItem="QXA-NX-PyZ" secondAttribute="bottom" constant="20" id="wDC-Sw-Zp5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GVw-2C-rhl"/>
                     </view>
+                    <connections>
+                        <outlet property="tableViewCountryList" destination="QXA-NX-PyZ" id="N4E-XH-map"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AdS-gw-ted" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="87" y="42"/>
         </scene>
     </scenes>
 </document>
